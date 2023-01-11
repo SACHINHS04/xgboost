@@ -2,6 +2,16 @@ import streamlit as st
 import xgboost as xgb
 import sklearn
 from sklearn.model_selection import train_test_split
+import pandas as pd
+
+@st.cache(persist=True)
+def load_data():
+    try:
+        data = pd.read_csv("path/to/data.csv")
+        return data
+    except Exception as e:
+        st.error(e)
+
 
 # # Load data
 # @st.cache(persist=True)
@@ -44,9 +54,9 @@ from sklearn.model_selection import train_test_split
 # importance = xgb_cv.best_estimator_.feature_importances_
 # st.bar_chart(importance)
 # Load data
-@st.cache(persist=True)
-def load_data():
-    return # load your data
+# @st.cache(persist=True)
+# def load_data():
+#     return # load your data
 
 data = load_data()
 
