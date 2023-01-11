@@ -90,21 +90,21 @@ param_grid = {
 
 
     # Perform hyperparameter tuning
-    xgb_cv = GridSearchCV(xgb_model, param_grid, cv=3)
-    xgb_cv.fit(X_train, y_train)
+xgb_cv = GridSearchCV(xgb_model, param_grid, cv=3)
+xgb_cv.fit(X_train, y_train)
 
     # Print best hyperparameters
-    st.write("Best hyperparameters:", xgb_cv.best_params_)
+st.write("Best hyperparameters:", xgb_cv.best_params_)
 
     # Get test set predictions
-    y_pred = xgb_cv.predict(X_test)
+y_pred = xgb_cv.predict(X_test)
 
     # Show model evaluation metrics
-    st.write("Accuracy:", accuracy_score(y_test, y_pred))
-    st.write("Precision:", precision_score(y_test, y_pred))
-    st.write("Recall:", recall_score(y_test, y_pred))
+st.write("Accuracy:", accuracy_score(y_test, y_pred))
+st.write("Precision:", precision_score(y_test, y_pred))
+st.write("Recall:", recall_score(y_test, y_pred))
 
     # Show feature importance
-    importance = xgb_cv.best_estimator_.feature_importances_
-    st.bar_chart(importance)
+ importance = xgb_cv.best_estimator_.feature_importances_
+ st.bar_chart(importance)
 
