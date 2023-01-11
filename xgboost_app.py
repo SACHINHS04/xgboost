@@ -71,13 +71,13 @@ def load_data():
 
 data = load_data()
 
-if "target" not in data.columns:
-    if "Target" in data.columns:
-        st.warning("Target column found instead of target, using Target column as target")
-        data = data.rename(columns={"Target":"target"})
-    else:
-        st.error("target column not present in the data, Please check the data and add the target column")
-        return
+# if "target" not in data.columns:
+#     if "Target" in data.columns:
+#         st.warning("Target column found instead of target, using Target column as target")
+#         data = data.rename(columns={"Target":"target"})
+#     else:
+#         st.error("target column not present in the data, Please check the data and add the target column")
+#         return
     
     
 if "target" not in data.columns:
