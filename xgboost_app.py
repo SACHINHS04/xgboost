@@ -6,15 +6,15 @@ import pandas as pd
 
 
 
-@st.cache(persist=True)
-def load_data():
-    try:
-        data = pd.read_csv("path/to/data.csv")
-        return data
-    except FileNotFoundError:
-        st.error("File not found at the specified location, please check the file path")
-    except Exception as e:
-        st.error("Error while loading data: " + str(e))
+# @st.cache(persist=True)
+# def load_data():
+#     try:
+#         data = pd.read_csv("path/to/data.csv")
+#         return data
+#     except FileNotFoundError:
+#         st.error("File not found at the specified location, please check the file path")
+#     except Exception as e:
+#         st.error("Error while loading data: " + str(e))
 
 
 
@@ -63,8 +63,23 @@ def load_data():
 # def load_data():
 #     return # load your data
 
+# data = load_data()
+
+
+def load_data():
+    return # load your data
+
 data = load_data()
 
+if "target" not in data.columns:
+    if "Target" in data.columns:
+        st.warning("Target column found instead of target, using Target column as target")
+        data = data.rename(columns={"Target":"target"})
+    else:
+        st.error("target column not present in the data, Please check the data and add the target column")
+        return
+    
+    
 if "target" not in data.columns:
     if "Target" in data.columns:
         st.warning("Target column found instead of target, using Target column as target")
