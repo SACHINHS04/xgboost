@@ -73,13 +73,13 @@ if "target" not in data.columns:
         st.error("target column not present in the data, Please check the data and add the target column")
         return
 
-    # Split data into train and test sets
-    X = data.drop("target", axis=1)
-    y = data["target"]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+# Split data into train and test sets
+X = data.drop("target", axis=1)
+y = data["target"]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
    
-    # Define XGBoost model
-    xgb_model = xgb.XGBClassifier()
+# Define XGBoost model
+xgb_model = xgb.XGBClassifier()
 
     # Define hyperparameter tuning
     param_grid = {
