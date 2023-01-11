@@ -81,12 +81,12 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Define XGBoost model
 xgb_model = xgb.XGBClassifier()
 
-    # Define hyperparameter tuning
-    param_grid = {
-        'max_depth': [3, 5, 7],
-        'n_estimators': [50, 100, 200],
-        'learning_rate': [0.1, 0.01, 0.001]
-    }
+# Define hyperparameter tuning
+param_grid = {
+    'max_depth': [3, 5, 7],
+    'n_estimators': [50, 100, 200],
+    'learning_rate': [0.1, 0.01, 0.001]
+}
 
     # Perform hyperparameter tuning
     xgb_cv = GridSearchCV(xgb_model, param_grid, cv=3)
