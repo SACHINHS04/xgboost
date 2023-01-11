@@ -3,6 +3,23 @@ import xgboost as xgb
 import sklearn
 from sklearn.model_selection import train_test_split
 import pandas as pd
+import sys
+
+# Load data
+@st.cache(persist=True)
+def load_data():
+    return # load your data
+
+data = load_data()
+
+if "target" not in data.columns:
+    if "Target" in data.columns:
+        st.warning("Target column found instead of target, using Target column as target")
+        data = data.rename(columns={"Target":"target"})
+    else:
+        st.error("target column not present in the data, Please check the data and add the target column")
+        sys.exit()
+# rest of the code
 
 
 
@@ -65,11 +82,11 @@ import pandas as pd
 
 # data = load_data()
 
-@st.cache(persist=True)
-def load_data():
-    return # load your data
+# @st.cache(persist=True)
+# def load_data():
+#     return # load your data
 
-data = load_data()
+# data = load_data()
 
 # if "target" not in data.columns:
 #     if "Target" in data.columns:
@@ -80,13 +97,13 @@ data = load_data()
 #         return
     
     
-if "target" not in data.columns:
-    if "Target" in data.columns:
-        st.warning("Target column found instead of target, using Target column as target")
-        data = data.rename(columns={"Target":"target"})
-    else:
-        st.error("target column not present in the data, Please check the data and add the target column")
-        return
+# if "target" not in data.columns:
+#     if "Target" in data.columns:
+#         st.warning("Target column found instead of target, using Target column as target")
+#         data = data.rename(columns={"Target":"target"})
+#     else:
+#         st.error("target column not present in the data, Please check the data and add the target column")
+#         return
 
 # Split data into train and test sets
 X = data.drop("target", axis=1)
