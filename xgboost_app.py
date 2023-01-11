@@ -160,7 +160,8 @@ def load_data():
 # train the xgboost model
 @st.cache(allow_output_mutation=True)
 def train_xgb(data):
-    dtrain = xgb.DMatrix(data.drop(columns=['target']), label=data['target'])
+    dtrain = xgb.DMatrix(data.drop(columns='target'), label=data['target'])
+
     param = {'max_depth': 2, 'eta': 1, 'objective': 'binary:logistic'}
     model = xgb.train(param, dtrain, 2)
     return model
