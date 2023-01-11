@@ -2,3 +2,5 @@ xgboost
 sklearn
 streamlit
 scipy
+numpy
+pandas
