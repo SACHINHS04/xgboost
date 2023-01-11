@@ -65,7 +65,7 @@ import pandas as pd
 
 # data = load_data()
 
-
+@st.cache(persist=True)
 def load_data():
     return # load your data
 
