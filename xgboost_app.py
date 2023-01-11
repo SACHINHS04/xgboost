@@ -105,6 +105,6 @@ st.write("Precision:", precision_score(y_test, y_pred))
 st.write("Recall:", recall_score(y_test, y_pred))
 
     # Show feature importance
- importance = xgb_cv.best_estimator_.feature_importances_
- st.bar_chart(importance)
+importance = xgb_cv.best_estimator_.feature_importances_
+st.bar_chart(importance)
 
