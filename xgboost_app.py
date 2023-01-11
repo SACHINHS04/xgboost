@@ -6,9 +6,18 @@ import pandas as pd
 import sys
 
 # Load data
+
+
 @st.cache(persist=True)
 def load_data():
-    return # load your data
+    try:
+        data = pd.read_csv("path/to/data.csv")
+        return data
+    except FileNotFoundError:
+        st.error("File not found at the specified location, please check the file path")
+    except Exception as e:
+        st.error("Error while loading data: " + str(e))
+
 
 data = load_data()
 
