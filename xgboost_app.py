@@ -168,7 +168,7 @@ def train_xgb(data):
 # main function
 def main():
     data = load_data()
-    st.write("Shape of data: ", data.shape)
+   # st.write("Shape of data: ", data.shape)
 
     st.header("Train XGBoost Model")
     model = train_xgb(data)
