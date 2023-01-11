@@ -155,7 +155,7 @@ import xgboost as xgb
 # load your data
 @st.cache(allow_output_mutation=True)
 def load_data():
-    return your_data
+    return load_data
 
 # train the xgboost model
 @st.cache(allow_output_mutation=True)
